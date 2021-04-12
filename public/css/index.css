@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Nunito", sans-serif;
+}
+.jumbotron {
+    background-color: #1c4966;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    color: white;
+    margin-bottom: 0;
+    padding: 2rem 1rem;
+}
+.jumbotron > img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.jumbotron > h1 {
+    color: #c6c4c4;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* main area */
+.main-area {
+    background-image: url("../res/mu_area.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 55vh;
+}
+.main-area > .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.main-area > .container > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+.main-area > .container > a.login-btn {
+    margin: 10px;
+    color: #0e2433;
+}
+.main-area > .container > a.register-btn {
+    margin: 10px;
+    color: white;
+}
+.login-btn {
+    width: 200px;
+    height: 55px;
+    text-align: center;
+    border-radius: 0;
+    background-color: white;
+    font-size: 16px;
+}
+
+.register-btn {
+    width: 200px;
+    height: 55px;
+    border-radius: 0;
+    background-color: #0e2433;
+    font-size: 16px;
+}
+
+/* footer */
+.footer {
+    background-color: #0e2433;
+    height: 50px;
+}
+.footer > .container {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-area {
+        background-size: 100% cover;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .main-area > .container {
+        flex-direction: column;
+    }
+    .jumbotron > img {
+        width: 150px;
+        height: 150px;
+    }
+    .jumbotron > h1 {
+        font-size: xx-large;
+    }
+    .jumbotron > h2 {
+        font-size: large;
+    }
+}
