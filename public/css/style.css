@@ -3,7 +3,6 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
     font-family: "Nunito", sans-serif;
 }
 .jumbotron {
@@ -77,6 +76,7 @@ body {
 .footer {
     background-color: #0e2433;
     height: 50px;
+    color: white;
 }
 .footer > .container {
     height: inherit;
@@ -105,4 +105,37 @@ body {
     .jumbotron > h2 {
         font-size: large;
     }
+}
+
+/* navbar css */
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c4966 !important;
+}
+.date-and-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.date-and-time {
+    margin-right: 20px;
+}
+.navbar-brand {
+    color: white !important;
+}
+.date-and-profile > img {
+    width: 40px;
+    height: 40px;
+}
+
+/* login page css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
