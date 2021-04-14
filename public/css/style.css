@@ -283,3 +283,105 @@ body {
         width: 85%;
     }
 }
+
+/* register page css */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.register-card > .alumni-register-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.register-card > .alumni-register-card > .register-form {
+    padding: 25px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+        0px -1px 4px rgba(0, 0, 0, 0.25);
+}
+.register-card > .alumni-register-card > .register-form .register-left-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.register-card > .alumni-register-card > .register-form .register-right-part {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.register-card > .alumni-register-card > .register-form input {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    margin: 20px;
+    border: navajowhite;
+    border-bottom: 1px solid #1c4966;
+    outline: none;
+    background: whitesmoke;
+}
+.register-card > .alumni-register-card > .register-form input:disabled {
+    background: #b6b4b4;
+}
+.register-card
+    > .alumni-register-card
+    > .register-form
+    input:disabled::placeholder {
+    color: white;
+}
+
+.register-card > .alumni-register-card > .register-form select {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    margin: 20px;
+    border: navajowhite;
+    border-bottom: 1px solid #1c4966;
+    outline: none;
+    background: whitesmoke;
+    color: gray;
+}
+.register-card > .alumni-register-card > .register-form textarea {
+    padding: 10px;
+    width: 100%;
+    margin: 20px;
+    border: navajowhite;
+    border-bottom: 1px solid #1c4966;
+    outline: none;
+    background: whitesmoke;
+}
+.register-card > .alumni-register-card > .register-form label {
+    width: 100%;
+    font-weight: 700;
+    padding: 0px 5px;
+}
+.register-card > .alumni-register-card > .register-form input[type="date"] {
+    margin-top: 5px;
+    color: gray;
+}
+.register-card > .alumni-register-card > .register-form .register-info {
+    padding: 20px;
+}
+.register-card > .alumni-register-card > .register-form .register-info > p {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    color: #1c4966;
+    font-weight: 700;
+}
+.register-card > .alumni-register-card > .register-form button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #1c4966;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
