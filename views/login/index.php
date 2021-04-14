@@ -6,9 +6,11 @@
 
     <div class="login-card">
         <!-- login card nav -->
+        <?php include("../../components/login/nav.php"); ?>
 
         <!-- select login card based on login nav -->
         <?php include("../../components/login/admin.php"); ?>
+        <?php include("../../components/login/alumni.php"); ?>
     </div>
 
     <!-- footer -->
