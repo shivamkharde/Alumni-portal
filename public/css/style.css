@@ -254,6 +254,11 @@ body {
     align-items: center;
     width: 100%;
 }
+.login-error {
+    width: 100%;
+    color: red;
+    display: none;
+}
 .login-card
     > .alumni-login-card
     > form

@@ -1,3 +1,15 @@
+<!-- check if session is already started and navigate based on role-->
+<?php 
+session_start();
+    if(isset($_SESSION['username']) && isset($_SESSION['role'])){
+        // redirect user to the page based on role
+        if($_SESSION['role'] == "admin"){
+            header("Location: ../views/admin");
+        }else{
+            header("Location: ../views/alumni");
+        }
+    }
+?>
 <?php include("../../components/header.php"); ?>
 
     <main class="login-container">
