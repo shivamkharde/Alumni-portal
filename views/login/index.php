@@ -5,8 +5,10 @@ session_start();
         // redirect user to the page based on role
         if($_SESSION['role'] == "admin"){
             header("Location: ../views/admin");
-        }else{
+        }else if($_SESSION['role'] == "alumni"){
             header("Location: ../views/alumni");
+        }else{
+            header("Location: ../../");
         }
     }
 ?>
