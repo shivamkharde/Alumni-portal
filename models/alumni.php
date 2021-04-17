@@ -9,6 +9,18 @@
             $this->connection = $con;
         }
 
+        // to login the alumni
+        public function loginAlumni($username,$password){
+            $this->query = "SELECT * FROM `$this->tablename` WHERE username = '$username' AND password='$password' AND is_verified = 1";
+
+            $result = mysqli_query($this->connection,$this->query);
+            if(mysqli_num_rows($result) == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
         // to get all the college data
         public function createAlumni($full_name,$email,$phone_no,$dob,$home_address,$roll_no,$college_name,$college_department,$joining_year,$passout_year,$cgpa){
 

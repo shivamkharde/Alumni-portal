@@ -13,6 +13,7 @@ include("../../controllers/login/admin.controller.php");
                         setTimeout(()=>{
                             document.querySelector('.login-error').style.display='none';
                         },3000);
+                        changeLoginType('admin');
                     </script>";
                 }
         ?>
