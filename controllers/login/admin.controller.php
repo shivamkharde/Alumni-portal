@@ -19,11 +19,13 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $isAvailable = $admin->loginAdmin($username,$password);
 
     if($isAvailable){
+        // store values in session for future use
         $_SESSION['username'] = $username;
         $_SESSION['role'] = "admin";
         $error = null;
         header("Location: ../../views/admin");
     }else{
+        // store error value and display it
         $error = "Invalid username or password";
     }
     

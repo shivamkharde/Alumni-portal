@@ -29,3 +29,33 @@ function changeLoginType(loginType) {
             "#929292";
     }
 }
+
+// this function is to get the selected college id from the college name dropdown
+function getSelectedOptionFromCollegeName() {
+    const selectedCollegeId = document.getElementById("college-name").value;
+    $.post("../../helpers/get_departments_by_college_id.helper.php", {
+        college_id: selectedCollegeId,
+    })
+        .then((data) => {
+            // populate data inside select box
+            populateDepartmentData(data);
+        })
+        .catch((err) => {
+            alert(err.message);
+        });
+}
+
+// this function si to populate the departments
+function populateDepartmentData(data) {
+    // get id ref of select box
+    const selectElement = document.getElementById("college-department");
+    // loop over data and and create options element
+    data.data.forEach((data) => {
+        const optionsElement = document.createElement("option");
+        optionsElement.value = data.id;
+        const text = document.createTextNode(data.department_name);
+        optionsElement.appendChild(text);
+        // append this option element to department select box
+        selectElement.appendChild(optionsElement);
+    });
+}

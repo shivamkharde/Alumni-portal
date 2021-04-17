@@ -1,7 +1,7 @@
 <?php 
-    class College{
+    class Department{
         private $connection;
-        private $tablename = "colleges";
+        private $tablename = "departments";
         private $query;
 
         // constructor to initialize
@@ -10,8 +10,8 @@
         }
 
         // to get all the college data
-        public function getAllColleges(){
-            $this->query = "SELECT * FROM `$this->tablename`";
+        public function getAllDepartmentsByCollegeId($college_id){
+            $this->query = "SELECT * FROM `$this->tablename` WHERE college_id=$college_id";
             $result = mysqli_query($this->connection, $this->query);
             if(mysqli_num_rows($result) >0){
                 return $result;
