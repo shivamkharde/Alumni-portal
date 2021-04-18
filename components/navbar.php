@@ -22,13 +22,13 @@
     }
 ?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light main-nav">
-    <a class="navbar-brand" href="..<?=$url_path?>"><?=$navbar_name?></a>
+    <a class="navbar-brand" href="<?=$url_path?>"><?=$navbar_name?></a>
     <div class="my-2 my-lg-0 date-and-profile">
         <div class="date-and-time">
             <h4 class="navbar-brand" style="margin: 0px">26<sup>th</sup> January 2021</h4>
         </div>
         <?php if(isset($_SESSION['user_data'])){ ?>
-            <img src="../../public/res/user.png" alt="" class="profile-icon">
+            <img src="/public/res/user.png" alt="" class="profile-icon">
         <?php }?>
     </div>
 </nav>

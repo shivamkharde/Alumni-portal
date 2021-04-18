@@ -19,6 +19,17 @@
                 return null;
             }
         }
+
+        // to get college data by id
+        public function getCollegeDetailsById($college_id){
+            $this->query = "SELECT * FROM `$this->tablename` WHERE id=$college_id";
+            $result = mysqli_query($this->connection, $this->query);
+            if(mysqli_num_rows($result) == 1){
+                return mysqli_fetch_assoc($result);
+            }else{
+                return null;
+            }
+        }
     }
 
 ?>

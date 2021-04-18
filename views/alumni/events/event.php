@@ -6,15 +6,15 @@ if(isset($_SESSION['user_data'])){
         include("../../../components/header.php");
 ?>
 
-<main class="event-main-container">
+<main class="single-event-main-container">
     <div>
         <?php 
         include("../../../components/navbar.php"); 
         include("../../../components/alumni/nav.php"); 
         ?>
     </div>
-    <div class="event-card-container">
-        <?php include("../../../components/alumni/eventcard.php"); ?>
+    <div class="single-event-container">
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/components/alumni/singleevent.php'); ?>
     </div>
     <?php include("../../../components/footer.php"); ?>
 </main>

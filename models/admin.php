@@ -22,6 +22,20 @@ class Admin{
         }
     }
 
+    // get admin details by admin id
+    public function getAdminByAdminId($admin_id){
+        // query to get the admin based on username and password
+        $this->query  = "SELECT * FROM `$this->tablename` WHERE id=$admin_id";
+    
+        // if admin is available then return true otherwise false
+        $result = mysqli_query($this->connection, $this->query);
+        if(mysqli_num_rows($result) == 1){
+            return mysqli_fetch_assoc($result);;
+        }else{
+            return null;
+        }
+    }
+
 }
 
 ?>
