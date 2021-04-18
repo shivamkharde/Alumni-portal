@@ -17,10 +17,20 @@ if(isset($_POST['alumni-username']) && isset($_POST['alumni-password']) && isset
     // pass user data to check if admin is 
     $isAvailable = $alumni->loginAlumni($username,$password);
 
-    if($isAvailable){
-        // store values in session for future use
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = "alumni";
+    if($isAvailable!=false){
+        // make array of user info 
+        $userObj  = array(
+            "id"=> $isAvailable['id'],
+            "college_id"=>$isAvailable['college_id'],
+            "department_id"=>$isAvailable['department_id'],
+            "email" => $isAvailable['email'],
+            "username"=>$isAvailable['username'],
+            "role"=>"alumni",
+        );
+
+        // store array of userObj values in session for future use
+        $_SESSION['user_data'] = $userObj;
+
         $error = null;
         header("Location: ../../views/alumni");
     }else{

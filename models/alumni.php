@@ -15,7 +15,7 @@
 
             $result = mysqli_query($this->connection,$this->query);
             if(mysqli_num_rows($result) == 1){
-                return true;
+                return mysqli_fetch_assoc($result);
             }else{
                 return false;
             }

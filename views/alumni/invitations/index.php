@@ -1,8 +1,8 @@
 <!-- check if user is signed in or not otherwise redirect to login page -->
 <?php 
 session_start();
-if(isset($_SESSION['username']) && isset($_SESSION['role'])){
-    if($_SESSION['role'] == "alumni"){
+if(isset($_SESSION['user_data'])){
+    if($_SESSION['user_data']['role'] == "alumni"){
         include("../../../components/header.php");
         include("../../../components/navbar.php");
         include("../../../components/alumni/nav.php");

@@ -1,11 +1,11 @@
 <!-- check if session is already started and navigate based on role-->
 <?php 
 session_start();
-    if(isset($_SESSION['username']) && isset($_SESSION['role'])){
+    if(isset($_SESSION['user_data'])){
         // redirect user to the page based on role
-        if($_SESSION['role'] == "admin"){
+        if($_SESSION['user_data']['role'] == "admin"){
             header("Location: ../views/admin");
-        }else if($_SESSION['role'] == "alumni"){
+        }else if($_SESSION['user_data']['role'] == "alumni"){
             header("Location: ../views/alumni");
         }else{
             header("Location: ../../");

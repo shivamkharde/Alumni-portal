@@ -18,10 +18,22 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     // pass user data to check if admin is 
     $isAvailable = $admin->loginAdmin($username,$password);
 
-    if($isAvailable){
+    if($isAvailable!=false){
+        // make array of user info 
+        $userObj  = array(
+            "id"=> $isAvailable['id'],
+            "college_id"=>$isAvailable['college_id'],
+            "department_id"=>$isAvailable['department_id'],
+            "designation_id"=>$isAvailable['designation_id'],
+            "college_email" => $isAvailable['college_email'],
+            "personal_email" => $isAvailable['personal_email'],
+            "username"=>$isAvailable['username'],
+            "role"=>"admin",
+        );
+
         // store values in session for future use
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = "admin";
+        $_SESSION['user_data'] = $userObj;
+       
         $error = null;
         header("Location: ../../views/admin");
     }else{

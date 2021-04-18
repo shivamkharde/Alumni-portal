@@ -15,10 +15,10 @@
         $navbar_name = "Alumni Portal Login";
     }else if(startsWith($url_path,"/views/alumni")){
         $navbar_name ="Welcome Alumni - ";
-        $navbar_name.=$_SESSION['username'];
+        $navbar_name.=$_SESSION['user_data']['username'];
     }else if(startsWith($url_path,"/views/admin")){
         $navbar_name ="Welcome Admin - ";
-        $navbar_name.=$_SESSION['username'];
+        $navbar_name.=$_SESSION['user_data']['username'];
     }
 ?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light main-nav">
@@ -27,7 +27,7 @@
         <div class="date-and-time">
             <h4 class="navbar-brand" style="margin: 0px">26<sup>th</sup> January 2021</h4>
         </div>
-        <?php if(isset($_SESSION['username'])){ ?>
+        <?php if(isset($_SESSION['user_data'])){ ?>
             <img src="../../public/res/user.png" alt="" class="profile-icon">
         <?php }?>
     </div>
