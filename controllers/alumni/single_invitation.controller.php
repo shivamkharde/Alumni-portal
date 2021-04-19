@@ -13,7 +13,11 @@ if(isset($_GET['id']) && $_GET['id'] != null){
     $invitation  = new Invitation($connection);
     $admin = new Admin($connection);
     $single_invitation = $invitation->getSingleInvitationByInvitationId($invitation_id);
-    $admin_details = $admin->getAdminByAdminId($single_invitation['admin_id']);
+    if($single_invitation != null){
+        $admin_details = $admin->getAdminByAdminId($single_invitation['admin_id']);
+    }else{
+        header("Location: /views/alumni/invitations");
+    }
 }else{
     header("Location: /views/alumni/invitations");
 }

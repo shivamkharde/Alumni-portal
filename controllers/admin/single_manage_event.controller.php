@@ -13,7 +13,11 @@ if(isset($_GET['id']) && $_GET['id'] != null){
     $event  = new Events($connection);
     $admin = new Admin($connection);
     $single_event = $event->getSingleEventByEventId($event_id);
-    $admin_details = $admin->getAdminByAdminId($single_event['admin_id']);
+    if($single_event!=null){
+        $admin_details = $admin->getAdminByAdminId($single_event['admin_id']);
+    }else{
+        header("Location: /views/admin/manage-events");
+    }
 }else{
     header("Location: /views/admin/manage-events");
 }
