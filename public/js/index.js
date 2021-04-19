@@ -59,3 +59,23 @@ function populateDepartmentData(data) {
         selectElement.appendChild(optionsElement);
     });
 }
+
+// function to accept the invitation
+function acceptInvitation(college_id, invitation_id) {
+    const confirmation = confirm("Accept this invitation ??");
+    if (confirmation) {
+        $.post("/helpers/accept_invitation.helper.php", {
+            college_id: college_id,
+            invitation_id: invitation_id,
+        })
+            .then((data) => {
+                //    show alert to the user that invitation accepted successfully
+                alert(data.message);
+                // redirect user to all invitation page
+                window.location.href = "/views/alumni/invitations";
+            })
+            .catch((err) => {
+                alert(err.message);
+            });
+    }
+}

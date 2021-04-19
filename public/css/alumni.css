@@ -154,3 +154,175 @@
     > h5 {
     text-align: center;
 }
+
+/* all invitations page css */
+.invitation-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.invitation-main-container > .invitation-card-container .invitation-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.invitation-main-container
+    > .invitation-card-container
+    .invitation-card
+    .card-body {
+    padding-bottom: 0;
+}
+.invitation-main-container
+    > .invitation-card-container
+    .invitation-card
+    .card-body
+    > a {
+    text-decoration: none;
+    color: black;
+}
+.invitation-main-container
+    > .invitation-card-container
+    .invitation-card
+    .card-body
+    > hr {
+    width: 150px;
+    text-align: left;
+    margin-left: 0;
+    background: #929292;
+    height: 2px;
+}
+.invitation-main-container
+    > .invitation-card-container
+    .invitation-card
+    > .card
+    .col-md-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invitation-main-container
+    > .invitation-card-container
+    .invitation-card
+    > .card
+    .col-md-2
+    p {
+    padding: 15px;
+}
+
+/* single invitation page css */
+.single-invitation-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    > .container
+    .goto-invitations-btn
+    > a {
+    color: black;
+    font-weight: 400;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    > .container
+    .goto-invitations-btn
+    img {
+    width: 20px;
+    margin-right: 10px;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .invitation-title
+    > h2 {
+    font-weight: 700;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .invitation-title
+    > hr {
+    width: 150px;
+    text-align: left;
+    margin-left: 0;
+    background: #929292;
+    height: 2px;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .invitation-description
+    > p {
+    font-weight: 300;
+    font-size: 20px;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .accept-invitation-btn {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .accept-invitation-btn
+    > a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .accept-invitation-btn
+    > a
+    > button {
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    background: #1c4966;
+    border: none;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .see-event-details-btn {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .see-event-details-btn
+    > a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.single-invitation-main-container
+    > .single-invitation-container
+    .container
+    .see-event-details-btn
+    > a
+    > button {
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    background: #45b6fe;
+    border: none;
+}
