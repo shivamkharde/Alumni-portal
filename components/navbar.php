@@ -28,7 +28,14 @@
             <h4 class="navbar-brand" style="margin: 0px">26<sup>th</sup> January 2021</h4>
         </div>
         <?php if(isset($_SESSION['user_data'])){ ?>
-            <img src="/public/res/user.png" alt="" class="profile-icon">
+            <div class="dropdown dropleft">
+                <span id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/public/res/user.png" alt="profile" class="profile-icon">
+                </span>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/controllers/login/logout.controller.php">Logout</a>
+                </div>
+            </div>
         <?php }?>
     </div>
 </nav>
