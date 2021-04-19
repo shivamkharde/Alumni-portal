@@ -1,6 +1,6 @@
 <!-- add event controller file -->
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
+include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/allevents.controller.php');
 ?>
 <div class="container">
     <div class="row">
@@ -15,7 +15,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
         if($events==null){
     ?>
         <div class="row">
-            <div class="col-md-12 event-card">
+            <div class="col-md-12 manage-all-event-card">
                 <h3>No Events Available</h3>
             </div>
         </div>
@@ -25,7 +25,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
     ?>
         <!-- card starts here -->
         <div class="row">
-            <div class="col-md-12 event-card">
+            <div class="col-md-12  manage-all-event-card">
                 <div class="card mb-3"  style="width:90%;">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -33,7 +33,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <a href="/views/alumni/events/event.php?id=<?=$row['id']?>">
+                                <a href="/views/admin/manage-events/event.php?id=<?=$row['id']?>">
                                     <h4 class="card-title event-title"><?=$row['name']?></h4>
                                 </a>
                                 <hr>
@@ -48,7 +48,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <a href="/views/alumni/events/event.php?id=<?=$row['id']?>">
+                            <a href="/views/admin/manage-events/event.php?id=<?=$row['id']?>">
                                 <p class="card-text">
                                     <img src="/public/res/right_arrow.png" alt="">
                                 </p>

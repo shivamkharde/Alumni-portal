@@ -11,7 +11,7 @@ if(isset($_POST['event-subject']) && isset($_POST['event-message']) && $_POST['e
     $event_request = new EventRequest($connection);
     // sanitize user data
     $event_subject = mysqli_real_escape_string($connection,$_POST['event-subject']);
-    $event_message = md5(mysqli_real_escape_string($connection,$_POST['event-message']));
+    $event_message = mysqli_real_escape_string($connection,$_POST['event-message']);
     $college_id = $_SESSION['college_data']['id'];
     $alumni_id = $_SESSION['user_data']['id'];
     $department_id = $_SESSION['user_data']['department_id'];

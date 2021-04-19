@@ -1,14 +1,29 @@
 <!-- include single event controller -->
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/single_event.controller.php');
+include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/single_manage_event.controller.php');
 ?>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="goto-events-btn">
-                <a href="/views/alumni/events"><img src="/public/res/left_arrow.png" alt=""> Back</a>
+        <div class="col-md-12 manage-event-meta-header">
+            <div class="goto-manage-events-btn">
+                <a href="/views/admin/manage-events"><img src="/public/res/left_arrow.png" alt=""> Back</a>
             </div>
+            <!-- if event admin id is currently logged in admin id then give option to edit event -->
+            <?php if($single_event['admin_id'] == $_SESSION['user_data']['id']) {?>
+                <div class="manage-event-action-area">
+                    <div class="edit-single-event-btn">
+                        <a href="/views/admin/manage-events/edit_event.php?id=<?=$single_event['id']?>">
+                            <button class="btn-success">Edit</button>
+                        </a>
+                    </div>
+                    <div class="delete-single-event-btn">
+                        <a href="/helpers/delete_event.helper.php?id=<?=$single_event['id']?>">
+                            <button class="btn-danger">delete</button>
+                        </a>
+                    </div>
+                </div>
+            <?php }?>
         </div>
     </div>
     <br>

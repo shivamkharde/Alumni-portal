@@ -1,0 +1,336 @@
+/* all admin pages css */
+.admin-navbar {
+    background-color: #0e2433;
+}
+.admin-navbar > a {
+    color: #929292;
+}
+
+/* manage events sub navbar */
+.admin-manage-events-navbar {
+    background-color: #0e2433;
+}
+.admin-manage-events-navbar > a {
+    color: #929292;
+}
+/* subnav css */
+.college-logo-nav > img {
+    width: 400px;
+}
+@media only screen and (max-width: 375px) {
+    .college-logo-nav > img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* manage events -> all events page css */
+/* alumni events page css  */
+.manage-all-event-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    .card-body {
+    padding-bottom: 0;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    .card-body
+    > a {
+    text-decoration: none;
+    color: black;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    .card-body
+    > hr {
+    width: 150px;
+    text-align: left;
+    margin-left: 0;
+    background: #929292;
+    height: 2px;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    > .card
+    .col-md-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    > .card
+    .col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.manage-all-event-main-container
+    > .manage-all-event-card-container
+    .manage-all-event-card
+    > .card
+    .col-md-2
+    p {
+    padding: 15px;
+}
+
+/* manage events single event page */
+/* single event css */
+/* admin manage events page css  */
+.single-manage-event-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .goto-manage-events-btn
+    > a {
+    color: black;
+    font-weight: 400;
+}
+
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .goto-manage-events-btn
+    img {
+    width: 20px;
+    margin-right: 10px;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .manage-event-meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .manage-event-meta-header
+    .manage-event-action-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .manage-event-meta-header
+    .edit-single-event-btn
+    > a
+    > button {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    margin-right: 10px;
+    border: none;
+    padding: 8px;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    > .container
+    .manage-event-meta-header
+    .delete-single-event-btn
+    > a
+    > button {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    margin-right: 10px;
+    border: none;
+    padding: 8px;
+}
+
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-title
+    > h2 {
+    font-weight: 700;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-title
+    > hr {
+    width: 150px;
+    text-align: left;
+    margin-left: 0;
+    background: #929292;
+    height: 2px;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-description
+    > p {
+    font-weight: 300;
+    font-size: 20px;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-timings {
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+        0px -1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-timings
+    > h4 {
+    border-left: 5px solid;
+    padding-left: 15px;
+    font-weight: 700;
+}
+
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-timings
+    > .event-date-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
+    .event-timings
+    > .event-date-time
+    > h5 {
+    text-align: center;
+}
+
+/* manage-events -> add event css */
+.add-event-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.add-event-main-container > .add-event-card-container .add-event-card {
+    width: 50%;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 0px -1px 4px rgb(0 0 0 / 25%);
+}
+.add-event-main-container > .add-event-card-container .add-event-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-event-main-container > .add-event-card-container .add-event-card > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    margin: 10px;
+}
+.add-event-main-container
+    > .add-event-card-container
+    .add-event-card
+    > form
+    > input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid #1c4966;
+    margin: 20px auto;
+    background: whitesmoke;
+    padding: 10px;
+    outline: none;
+}
+.add-event-main-container
+    > .add-event-card-container
+    .add-event-card
+    > form
+    > textarea {
+    width: 100%;
+    /* height: 50px; */
+    border: none;
+    border-bottom: 2px solid #1c4966;
+    margin: 20px auto;
+    background: whitesmoke;
+    padding: 10px;
+    outline: none;
+}
+.add-event-main-container
+    > .add-event-card-container
+    .add-event-card
+    > form
+    > button {
+    margin: 20px 30px 20px 20px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    border: none;
+    background: #1c4966;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+@media only screen and (min-width: 2560px) {
+    .add-event-main-container > .add-event-card-container .add-event-card {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .add-event-main-container > .add-event-card-container .add-event-card {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .add-event-main-container > .add-event-card-container .add-event-card {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .add-event-main-container > .add-event-card-container .add-event-card {
+        width: 85%;
+    }
+}

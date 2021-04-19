@@ -5,6 +5,7 @@ if(isset($_SESSION['user_data'])){
     if($_SESSION['user_data']['role'] == "admin"){
         include("../../components/header.php");
         include("../../components/navbar.php");
+        include("../../components/admin/nav.php");
         include("../../components/footer.php");
     }else{
         header("Location: ../../views/alumni");
