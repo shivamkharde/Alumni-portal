@@ -4,15 +4,22 @@ session_start();
 if(isset($_SESSION['user_data'])){
     if($_SESSION['user_data']['role'] == "alumni"){
         include("../../../components/header.php");
-        include("../../../components/navbar.php");
-        include("../../../components/alumni/nav.php");
 ?>
 
-<!-- main content -->
-<h1>Request To Host Event</h1>
+<main class="request-to-host-event-main-container">
+    <div>
+        <?php 
+        include("../../../components/navbar.php"); 
+        include("../../../components/alumni/nav.php"); 
+        ?>
+    </div>
+    <div class="request-to-host-event-card-container">
+        <?php include("../../../components/alumni/hosteventcard.php"); ?>
+    </div>
+    <?php include("../../../components/footer.php"); ?>
+</main>
 
-<?php
-        include("../../../components/footer.php");
+<?php 
     }else{
         header("Location: ../../../views/admin");
     }
