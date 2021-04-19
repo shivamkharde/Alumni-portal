@@ -18,7 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/single_manage_event.contro
                         </a>
                     </div>
                     <div class="delete-single-event-btn">
-                        <a href="/helpers/delete_event.helper.php?id=<?=$single_event['id']?>">
+                        <a onclick="deleteEvent(<?=$single_event['id']?>)" href="#">
                             <button class="btn-danger">delete</button>
                         </a>
                     </div>

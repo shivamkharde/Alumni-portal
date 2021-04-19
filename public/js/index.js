@@ -79,3 +79,13 @@ function acceptInvitation(college_id, invitation_id) {
             });
     }
 }
+
+// function to get confirmation for deleting event
+function deleteEvent(event_id) {
+    const confirmation = confirm("do you really want to delete this event??");
+    if (confirmation) {
+        // redirect user to delete event file
+        window.location.href =
+            "/controllers/admin/delete_event.controller.php?id=" + event_id;
+    }
+}

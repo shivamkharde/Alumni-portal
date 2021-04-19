@@ -23,6 +23,22 @@ class Events{
         }
     }
 
+    // to delete the event by id
+    public function deleteEventByEventId($event_id){
+        $event_details = $this->getSingleEventByEventId($event_id);
+        if($event_details!=null){
+            $this->query = "DELETE FROM `$this->tablename` WHERE id=$event_id";
+            $result = mysqli_query($this->connection, $this->query);
+            if(mysqli_affected_rows($this->connection) ==1){
+                return $event_details;
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
      // to get single event data by event id
      public function getSingleEventByEventId($event_id){
         $this->query = "SELECT * FROM `$this->tablename` WHERE id=$event_id";
