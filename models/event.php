@@ -23,6 +23,48 @@ class Events{
         }
     }
 
+    // edit event with image file
+    public function editEventWithImageFile($event_id,$college_id,$department_id,$admin_id,$event_name,$event_description,$image_name,$event_start_date,$event_end_date){
+
+        // first get the event by event id
+        $event_details = $this->getSingleEventByEventId($event_id);
+        if($event_details!=null){
+
+            // delete the previous image file from server
+            if(unlink($_SERVER['DOCUMENT_ROOT']."/public/res/event_images/".$event_details['image'])){
+                // if deleted 
+                // update the event details with new image name
+                $this->query = "UPDATE `events` SET `name`='$event_name',`description`='$event_description',`image`='$image_name',`start_date`='$event_start_date',`end_date`='$event_end_date',`updated_at`= CURDATE() WHERE id=$event_id"; 
+
+                $result = mysqli_query($this->connection,$this->query);
+                if(mysqli_affected_rows($this->connection) == 1){
+                    return true;
+                }else{
+                    return null;
+                }
+            }else{
+                // something went wrong while deleting image
+                return null;
+            }
+
+        }else {
+            return null;
+        }
+    }
+
+    // to edit the event without image file
+    public function editEventWithoutImageFile($event_id,$college_id,$department_id,$admin_id,$event_name,$event_description,$event_start_date,$event_end_date){
+        // update the info
+        $this->query = "UPDATE `events` SET `name`='$event_name',`description`='$event_description',`start_date`='$event_start_date',`end_date`='$event_end_date',`updated_at`= CURDATE() WHERE id=$event_id AND college_id=$college_id"; 
+
+        $result = mysqli_query($this->connection,$this->query);
+        if(mysqli_affected_rows($this->connection) == 1){
+            return true;
+        }else{
+            return null;
+        }
+    }
+
     // to delete the event by id
     public function deleteEventByEventId($event_id){
         $event_details = $this->getSingleEventByEventId($event_id);

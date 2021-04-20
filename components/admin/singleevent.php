@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/single_manage_event.contro
             <?php if($single_event['admin_id'] == $_SESSION['user_data']['id']) {?>
                 <div class="manage-event-action-area">
                     <div class="edit-single-event-btn">
-                        <a href="/views/admin/manage-events/edit_event.php?id=<?=$single_event['id']?>">
+                        <a data-toggle="modal" data-target="#edit-single-event-model" href="#">
                             <button class="btn-success">Edit</button>
                         </a>
                     </div>
@@ -48,7 +48,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/single_manage_event.contro
     <div class="row">
         <div class="col-md-12">
             <div class="event-image">
-                <img src="/public/res/event_images/<?=$single_event['image']?>" width="100%" alt="">
+                <img src="/public/res/event_images/<?=$single_event['image']?>" alt="">
             </div>
         </div>
     </div>
@@ -74,3 +74,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/single_manage_event.contro
     </div>
     <br>
 </div>
+
+<!-- edit event modal file -->
+<?php include($_SERVER['DOCUMENT_ROOT'].'/components/admin/editeventmodal.php'); ?>

@@ -25,7 +25,7 @@
     <a class="navbar-brand" href="<?=$url_path?>"><?=$navbar_name?></a>
     <div class="my-2 my-lg-0 date-and-profile">
         <div class="date-and-time">
-            <h4 class="navbar-brand" style="margin: 0px">26<sup>th</sup> January 2021</h4>
+            <h4 class="navbar-brand" style="margin: 0px"><?= date("F jS, Y",time())?></h4>
         </div>
         <?php if(isset($_SESSION['user_data'])){ ?>
             <div class="dropdown dropleft">

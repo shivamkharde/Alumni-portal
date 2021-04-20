@@ -29,7 +29,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/alumni/events.controller.php');
                 <div class="card mb-3"  style="width:90%;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/public/res/event_images/<?=$row['image']?>" style="width:200px;"alt="...">
+                            <img src="/public/res/event_images/<?=$row['image']?>" style="width:200px;height:200px;"alt="...">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">

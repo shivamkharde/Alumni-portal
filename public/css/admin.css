@@ -195,6 +195,14 @@
 .single-manage-event-main-container
     > .single-manage-event-container
     .container
+    .event-image
+    > img {
+    width: 90%;
+}
+
+.single-manage-event-main-container
+    > .single-manage-event-container
+    .container
     .event-description
     > p {
     font-weight: 300;
@@ -241,6 +249,16 @@
     > .event-date-time
     > h5 {
     text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+    .single-manage-event-main-container
+        > .single-manage-event-container
+        .container
+        .event-image
+        > img {
+        width: 100%;
+    }
 }
 
 /* manage-events -> add event css */
@@ -333,4 +351,47 @@
     .add-event-main-container > .add-event-card-container .add-event-card {
         width: 85%;
     }
+}
+
+/* edit event form modal css */
+.edit-single-event-form-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-single-event-form-main-container > .edit-single-event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.edit-single-event-form-main-container > .edit-single-event-form > input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid #1c4966;
+    margin: 20px auto;
+    background: whitesmoke;
+    padding: 10px;
+    outline: none;
+}
+.edit-single-event-form-main-container > .edit-single-event-form > textarea {
+    width: 100%;
+    /* height: 50px; */
+    border: none;
+    border-bottom: 2px solid #1c4966;
+    margin: 20px auto;
+    background: whitesmoke;
+    padding: 10px;
+    outline: none;
+}
+.edit-single-event-form-main-container > .edit-single-event-form > button {
+    width: 100%;
+    height: 50px;
+    color: white;
+    border: none;
+    background: #1c4966;
+    font-weight: 700;
+    font-size: 18px;
 }
