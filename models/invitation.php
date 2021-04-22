@@ -31,9 +31,20 @@ class Invitation{
         }
     }
 
-    // to get all the events data by college id
+    // to get all the invitation data by alumni id
     public function getAllInvitationsByAlumniId($alumni_id){
         $this->query = "SELECT * FROM `$this->tablename` WHERE alumni_id=$alumni_id";
+        $result = mysqli_query($this->connection, $this->query);
+        if(mysqli_num_rows($result) >0){
+            return $result;
+        }else{
+            return null;
+        }
+    }
+
+      // to get all the invitation  data by event id
+    public function getAllInvitationsByEventId($event_id){
+        $this->query = "SELECT * FROM `$this->tablename` WHERE event_id=$event_id";
         $result = mysqli_query($this->connection, $this->query);
         if(mysqli_num_rows($result) >0){
             return $result;

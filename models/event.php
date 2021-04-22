@@ -94,7 +94,7 @@ class Events{
 
     // to get all the events data by college id
     public function getAllEventsByCollegeId($college_id){
-        $this->query = "SELECT * FROM `$this->tablename` WHERE college_id=$college_id";
+        $this->query = "SELECT * FROM `$this->tablename` WHERE college_id=$college_id ORDER BY created_at DESC ";
         $result = mysqli_query($this->connection, $this->query);
         if(mysqli_num_rows($result) >0){
             return $result;

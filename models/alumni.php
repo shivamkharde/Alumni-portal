@@ -35,6 +35,34 @@
             }
         }
 
+        // to get alumni by its id
+        public function getAlumniDetailsById($alumni_id){
+            $this->query = "SELECT * FROM `$this->tablename` WHERE id = $alumni_id AND is_verified = 1";
+
+            $result = mysqli_query($this->connection,$this->query);
+
+            if(mysqli_num_rows($result) == 1){
+                return mysqli_fetch_assoc($result);
+            }else{
+                return false;
+            }
+        }
+
+        // to get alumni details by college id
+        public function getNotInvitedAlumnis($college_id,$event_id){
+            $this->query = "SELECT a.*
+            FROM alumnis a LEFT JOIN invitations i ON a.id=i.alumni_id
+            WHERE a.college_id=$college_id AND a.is_verified=1 AND i.event_id!=$event_id OR i.alumni_id is NULL";
+
+            $result = mysqli_query($this->connection,$this->query);
+
+            if(mysqli_num_rows($result) > 0){
+                return $result;
+            }else{
+                return null;
+            }
+        }
+
         // /to check if user is already exists or not
         public function checkIfAlumniAlreadyExists($email,$phone_no){
 

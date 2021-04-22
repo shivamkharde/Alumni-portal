@@ -89,3 +89,273 @@ function deleteEvent(event_id) {
             "/controllers/admin/delete_event.controller.php?id=" + event_id;
     }
 }
+
+// function to get invited alumni list by event id
+function getInvitedAlumniListByEventId(event_id) {
+    // send get request to get all the invited alumni list
+    $.get("/helpers/get_invited_alumni_list.helper.php", {
+        event_id: event_id,
+    })
+        .then((data) => {
+            if (data.status == 404) {
+                // populate err
+                const message = data.message;
+                const template = `<h3 align="center">${message}</h3>`;
+                document.querySelector(
+                    "#see-invited-alumni-list-modal .modal-body .container",
+                ).innerHTML = template;
+            } else {
+                // store it in local storage for future use
+                window.localStorage.setItem(
+                    "invited_alumni_list",
+                    JSON.stringify(data),
+                );
+                console.log(data);
+                // populate data in see invited alumni modal
+                populateDataInInvitedAlumniModal(data);
+            }
+        })
+        .catch((err) => {
+            console.log(err.responseJSON.message);
+        });
+}
+
+// this function is to populate the invited alumni data
+function populateDataInInvitedAlumniModal(data) {
+    let invited_container = `
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- create a search bar to search invited alumni in list -->
+                    <div class="invited-alumni-search-bar">
+                        <input type="text" onkeyup="searchInInvitedAlumni()" placeholder="Search Invited Alumni By Name Or Email" name="invited-alumni-search-input" id="invited-alumni-search-input">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 populate-invited-alumni-list-cell">
+                    <!-- all the invited alumni list -->            
+                    <!-- invite alumni list card end -->
+                </div>
+            </div>
+        `;
+
+    let invited_card = ``;
+    // loop on data and create list of invited alumni card
+    data.data.forEach((list, index) => {
+        invited_card += `
+            <div class="invited-alumni-list-item">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="invited-alumni-info">
+                            <h4 class="invited-alumni-name">${
+                                list.fullname
+                            }</h4>
+                            <p class="text-muted">${list.email}</p>
+                            <p class="text-muted"><span class="badge ${
+                                list.accepted == 0
+                                    ? "badge-secondary"
+                                    : "badge-primary"
+                            }">${
+            list.accepted == 0 ? "Not Accepted" : "Accepted"
+        }</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="invited-alumni-see-details-button">
+                            <button type="button">SEE PROFILE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    // add first invited container to the body and then attach all invited cards
+    document.querySelector(
+        "#see-invited-alumni-list-modal .modal-body .container",
+    ).innerHTML = invited_container;
+
+    document.querySelector(
+        "#see-invited-alumni-list-modal .modal-body .populate-invited-alumni-list-cell",
+    ).innerHTML = invited_card;
+}
+
+// to search in invited alumni list
+function searchInInvitedAlumni() {
+    let search_input = document.querySelector("#invited-alumni-search-input")
+        .value;
+    let search_len = search_input.length;
+    const data = JSON.parse(window.localStorage.getItem("invited_alumni_list"));
+    let result = data.data.filter(
+        (li) =>
+            li.fullname.substring(0, search_len) == search_input ||
+            li.email.substring(0, search_len) == search_input,
+    );
+    let invited_card = ``;
+    // check if alumni found if not then show no invitation found by this name or email error
+    if (result.length == 0) {
+        invited_card += `<h5 align="center">No invitation found by this name or email</h5>`;
+    } else {
+        // get filtered list and show the results
+        result.forEach((list, index) => {
+            invited_card += `
+                <div class="invited-alumni-list-item">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="invited-alumni-info">
+                                <h4 class="invited-alumni-name">${
+                                    list.fullname
+                                }</h4>
+                                <p class="text-muted">${list.email}</p>
+                                <p class="text-muted"><span class="badge ${
+                                    list.accepted == 0
+                                        ? "badge-secondary"
+                                        : "badge-primary"
+                                }">${
+                list.accepted == 0 ? "Not Accepted" : "Accepted"
+            }</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="invited-alumni-see-details-button">
+                                <button type="button">SEE PROFILE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    document.querySelector(
+        "#see-invited-alumni-list-modal .modal-body .populate-invited-alumni-list-cell",
+    ).innerHTML = invited_card;
+}
+
+// function to get non invited alumni for a particular event
+function getNonInvitedAlumniForParticularEvent(college_id, event_id) {
+    // send get request to get all the invited alumni list
+    $.get("/helpers/get_not_invited_alumni_list.helper.php", {
+        college_id: college_id,
+        event_id: event_id,
+    })
+        .then((data) => {
+            if (data.status == 404) {
+                // populate err
+                const message = data.message;
+                const template = `<h3 align="center">${message}</h3>`;
+                document.querySelector(
+                    "#invite-alumni-to-event-modal .modal-body .container",
+                ).innerHTML = template;
+            } else {
+                // store it in local storage for future use
+                window.localStorage.setItem(
+                    "alumni_list",
+                    JSON.stringify(data),
+                );
+                console.log(data);
+                // populate data in see invited alumni modal
+                populateDataInInviteAlumniToEventModal(data);
+            }
+        })
+        .catch((err) => {
+            console.log(err.responseJSON.message);
+        });
+}
+
+// this function is to populate the alumni data in invite alumni to event modal
+function populateDataInInviteAlumniToEventModal(data) {
+    let non_invited_container = `
+    <div class="row">
+        <div class="col-md-12">
+            <!-- create a search bar to search alumni in list -->
+            <div class="invite-to-event-alumni-search-bar">
+                <input type="search" onkeyup="searchInNonInvitedAlumni()" placeholder="Search Alumni By Name Or Email" name="invite-to-event-alumni-search-input" id="invite-to-event-alumni-search-input">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 populate-non-invited-alumni-list-cell">
+            <!-- all the non invited alumni list -->            
+            <!-- invite alumni list card end -->
+        </div>
+    </div>
+`;
+
+    let non_invited_card = ``;
+    // loop on data and create list of invited alumni card
+    data.data.forEach((list, index) => {
+        non_invited_card += `
+    <div class="alumni-list-item">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="alumni-info-short">
+                    <h4 class="alumni-info-name">${list.fullname}</h4>
+                    <p class="text-muted">${list.email}</p>
+                    <p class="text-muted">${list.phone}</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="see-alumni-profile-and-invite-btn">
+                    <button type="button">SEE PROFILE</button>
+                    <button type="button">INVITE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+    });
+
+    // add first invited container to the body and then attach all invited cards
+    document.querySelector(
+        "#invite-alumni-to-event-modal .modal-body .container",
+    ).innerHTML = non_invited_container;
+
+    document.querySelector(
+        "#invite-alumni-to-event-modal .modal-body .populate-non-invited-alumni-list-cell",
+    ).innerHTML = non_invited_card;
+}
+
+// this function is to search the non invited alumni in the list
+function searchInNonInvitedAlumni() {
+    let search_input = document.querySelector(
+        "#invite-to-event-alumni-search-input",
+    ).value;
+    let search_len = search_input.length;
+    const data = JSON.parse(window.localStorage.getItem("alumni_list"));
+    let result = data.data.filter(
+        (li) =>
+            li.fullname.substring(0, search_len) == search_input ||
+            li.email.substring(0, search_len) == search_input,
+    );
+    let non_invited_card = ``;
+    // check if alumni found if not then show no invitation found by this name or email error
+    if (result.length == 0) {
+        non_invited_card += `<h5 align="center">No alumni found by this name or email</h5>`;
+    } else {
+        // get filtered list and show the results
+        result.forEach((list, index) => {
+            non_invited_card += `
+                <div class="alumni-list-item">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="alumni-info-short">
+                                <h4 class="alumni-info-name">${list.fullname}</h4>
+                                <p class="text-muted">${list.email}</p>
+                                <p class="text-muted">${list.phone}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="see-alumni-profile-and-invite-btn">
+                                <button type="button">SEE PROFILE</button>
+                                <button type="button">INVITE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    document.querySelector(
+        "#invite-alumni-to-event-modal .modal-body .populate-non-invited-alumni-list-cell",
+    ).innerHTML = non_invited_card;
+}

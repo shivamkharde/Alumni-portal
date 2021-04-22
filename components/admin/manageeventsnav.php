@@ -6,8 +6,8 @@
         $navItem = "all_events";
     }else if($url_path == "/views/admin/manage-events/add_event.php"){
         $navItem = "add_event";
-    }else if($url_path == "/views/admin/manage-events/add_event.php"){
-        $navItem = "add_event";
+    }else if($url_path == "/views/admin/manage-events/invite_alumni.php"){
+        $navItem = "invite_alumni";
     }
 ?>
 <nav class="nav justify-content-center admin-manage-events-navbar">
