@@ -20,3 +20,5 @@
         </div>
     </div>
 </div>
+<!-- modal to show title and message field to invite alumni -->
+<?php include($_SERVER['DOCUMENT_ROOT']."/components/admin/invitationtitlemessagemodal.php")?>

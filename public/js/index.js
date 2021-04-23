@@ -162,7 +162,9 @@ function populateDataInInvitedAlumniModal(data) {
                     </div>
                     <div class="col-md-5">
                         <div class="invited-alumni-see-details-button">
-                            <button type="button">SEE PROFILE</button>
+                            <button type="button" onclick="window.location.href='/views/admin/search-alumni/alumni.php?id=${
+                                list.alumni_id
+                            }'">SEE PROFILE</button>
                         </div>
                     </div>
                 </div>
@@ -218,7 +220,9 @@ function searchInInvitedAlumni() {
                         </div>
                         <div class="col-md-5">
                             <div class="invited-alumni-see-details-button">
-                                <button type="button">SEE PROFILE</button>
+                                <button type="button" onclick="window.location.href='/views/admin/search-alumni/alumni.php?id=${
+                                    list.alumni_id
+                                }'">SEE PROFILE</button>
                             </div>
                         </div>
                     </div>
@@ -254,7 +258,7 @@ function getNonInvitedAlumniForParticularEvent(college_id, event_id) {
                 );
                 console.log(data);
                 // populate data in see invited alumni modal
-                populateDataInInviteAlumniToEventModal(data);
+                populateDataInInviteAlumniToEventModal(data, event_id);
             }
         })
         .catch((err) => {
@@ -263,13 +267,13 @@ function getNonInvitedAlumniForParticularEvent(college_id, event_id) {
 }
 
 // this function is to populate the alumni data in invite alumni to event modal
-function populateDataInInviteAlumniToEventModal(data) {
+function populateDataInInviteAlumniToEventModal(data, event_id) {
     let non_invited_container = `
     <div class="row">
         <div class="col-md-12">
             <!-- create a search bar to search alumni in list -->
             <div class="invite-to-event-alumni-search-bar">
-                <input type="search" onkeyup="searchInNonInvitedAlumni()" placeholder="Search Alumni By Name Or Email" name="invite-to-event-alumni-search-input" id="invite-to-event-alumni-search-input">
+                <input type="search" onkeyup="searchInNonInvitedAlumni(${event_id})" placeholder="Search Alumni By Name Or Email" name="invite-to-event-alumni-search-input" id="invite-to-event-alumni-search-input">
             </div>
         </div>
     </div>
@@ -296,8 +300,8 @@ function populateDataInInviteAlumniToEventModal(data) {
             </div>
             <div class="col-md-5">
                 <div class="see-alumni-profile-and-invite-btn">
-                    <button type="button">SEE PROFILE</button>
-                    <button type="button">INVITE</button>
+                    <button type="button" onclick="window.location.href='/views/admin/search-alumni/alumni.php?id=${list.id}'">SEE PROFILE</button>
+                    <button type="button" id="open-send-invite-to-alumni-modal" data-toggle="modal" data-event-id="${event_id}" data-alumni-id="${list.id}" data-target="#invitation-title-message-modal" >INVITE</button>
                 </div>
             </div>
         </div>
@@ -316,7 +320,7 @@ function populateDataInInviteAlumniToEventModal(data) {
 }
 
 // this function is to search the non invited alumni in the list
-function searchInNonInvitedAlumni() {
+function searchInNonInvitedAlumni(event_id) {
     let search_input = document.querySelector(
         "#invite-to-event-alumni-search-input",
     ).value;
@@ -346,8 +350,8 @@ function searchInNonInvitedAlumni() {
                         </div>
                         <div class="col-md-5">
                             <div class="see-alumni-profile-and-invite-btn">
-                                <button type="button">SEE PROFILE</button>
-                                <button type="button">INVITE</button>
+                                <button type="button" onclick="window.location.href='/views/admin/search-alumni/alumni.php?id=${list.id}'">SEE PROFILE</button>
+                                <button type="button" id="open-send-invite-to-alumni-modal" data-toggle="modal" data-event-id="${event_id}" data-alumni-id="${list.id}" data-target="#invitation-title-message-modal">INVITE</button>
                             </div>
                         </div>
                     </div>
@@ -359,3 +363,18 @@ function searchInNonInvitedAlumni() {
         "#invite-alumni-to-event-modal .modal-body .populate-non-invited-alumni-list-cell",
     ).innerHTML = non_invited_card;
 }
+
+// listener to set the alumni id and event id to the send invite modal
+$(document).on("click", "#open-send-invite-to-alumni-modal", function () {
+    let event_id = $(this).data("event-id");
+    let alumni_id = $(this).data("alumni-id");
+
+    $("#invitation-title-message-modal #send-invitation-event-id").val(
+        event_id,
+    );
+    $("#invitation-title-message-modal #send-invitation-alumni-id").val(
+        alumni_id,
+    );
+
+    // $('#addBookDialog').modal('show');
+});

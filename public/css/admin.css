@@ -652,3 +652,123 @@
     > button:last-child {
     background: #1c4966;
 }
+
+/* send an invite modal css */
+#invitation-title-message-modal {
+    z-index: 1111111111;
+}
+#invitation-title-message-modal form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#invitation-title-message-modal form > input,
+textarea {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #0e2533;
+    outline: none;
+    padding: 10px;
+}
+#invitation-title-message-modal form > button {
+    width: 100%;
+    height: 50px;
+    color: white;
+    outline: none;
+    border: none;
+    background: #0e2533;
+}
+
+/* alumni details page css */
+.alumni-info-page-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.alumni-info-page-main-container .alumni-info-page-container > .container {
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+        0px -1px 4px rgba(0, 0, 0, 0.25);
+}
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-left-part {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-left-part
+    > .alumni-image {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-left-part
+    > .alumni-image
+    > img {
+    border-radius: 100%;
+    border: 1px solid #0e2433;
+}
+
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-left-part
+    > .alumni-account-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-left-part
+    > .alumni-account-info
+    > p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-right-part {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.alumni-info-page-main-container
+    .alumni-info-page-container
+    > .container
+    .alumni-info-right-part
+    > p {
+    width: 100%;
+}
