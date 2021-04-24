@@ -22,10 +22,10 @@
     }
 ?>
 <nav class="navbar navbar-expand-sm navbar-light bg-light main-nav">
-    <a class="navbar-brand" href="<?=$url_path?>"><?=$navbar_name?></a>
+    <a class="navbar-brand" style="font-size: 19px;" href="<?=$url_path?>"><?=$navbar_name?></a>
     <div class="my-2 my-lg-0 date-and-profile">
         <div class="date-and-time">
-            <h4 class="navbar-brand" style="margin: 0px"><?= date("F jS, Y",time())?></h4>
+            <h4 class="navbar-brand" style="margin: 0px;font-size: 19px;"><?= date("F jS, Y",time())?></h4>
         </div>
         <?php if(isset($_SESSION['user_data'])){ ?>
             <div class="dropdown dropleft">

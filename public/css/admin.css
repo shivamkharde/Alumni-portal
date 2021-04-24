@@ -978,3 +978,104 @@ textarea {
     > button {
     background-color: #1c4966;
 }
+
+/* new registrations page css  */
+.new-registrations-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    .card-body {
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    .card-body
+    > .new-registrations-created-date {
+    width: 100%;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    .card-body
+    > .new-registrations-created-date
+    > p {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    .card-body
+    > hr {
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    > .card
+    .col-md-12:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    > .card
+    .col-md-12:last-child
+    > .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    > .card
+    .col-md-12:last-child
+    > .row
+    > .col-md-6
+    > button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    color: white;
+}
+.new-registrations-main-container
+    > .new-registrations-container
+    .new-registrations-card
+    > .card
+    .col-md-12:last-child
+    > .row
+    > .col-md-6:first-child
+    > button {
+    background-color: #0e2433;
+}

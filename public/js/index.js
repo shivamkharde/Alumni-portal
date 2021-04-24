@@ -427,3 +427,39 @@ function searchForAlumni() {
         ".search-alumni-main-container .search-alumni-container #search-alumni-info-list-container",
     ).innerHTML = alumni_search_card;
 }
+
+// this function is to verify and accept alumni
+function verifyAndAcceptRegistration(
+    college_id,
+    department_id,
+    id,
+    fullname,
+    phone,
+    email,
+    dob,
+    roll_no,
+) {
+    let confirmation = confirm("Verify And Accept Registration Request ??");
+    if (confirmation) {
+        // send user to verify page with params
+        window.location.href = `/controllers/admin/verify_registration.controller.php?id=${id}&college_id=${college_id}&department_id=${department_id}&fullname=${fullname}&phone=${phone}&email=${email}&dob=${dob}&roll_no=${roll_no}`;
+    }
+}
+
+// this function is to deny and reject alumni registration request
+function denyNewRegistration(
+    college_id,
+    department_id,
+    id,
+    fullname,
+    phone,
+    email,
+    dob,
+    roll_no,
+) {
+    let confirmation = confirm("Deny this registration request ??");
+    if (confirmation) {
+        // send user to verify page with params
+        window.location.href = `/controllers/admin/deny_new_registration.controller.php?id=${id}&college_id=${college_id}&department_id=${department_id}&fullname=${fullname}&phone=${phone}&email=${email}&dob=${dob}&roll_no=${roll_no}`;
+    }
+}

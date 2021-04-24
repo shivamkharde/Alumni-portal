@@ -51,6 +51,8 @@ $_SESSION['college_data'] = $collegeObj;
         $navItem = "search-alumni";
     }else if($url_path == "/views/admin/event-requests"){
         $navItem = "event-requests";
+    }else if($url_path == "/views/admin/new-registrations"){
+        $navItem = "new-registrations";
     }
 ?>
 <nav class="nav justify-content-center admin-navbar">
@@ -58,6 +60,7 @@ $_SESSION['college_data'] = $collegeObj;
     <a class="nav-link" href="/views/admin/manage-events" style="color: <?= $navItem == 'manage-events'?'white':'#929292'?>">Manage Events</a>
     <a class="nav-link" href="/views/admin/search-alumni" style="color: <?= $navItem == 'search-alumni'?'white':'#929292'?>">Search Alumni</a>
     <a class="nav-link" href="/views/admin/event-requests" style="color: <?= $navItem == 'event-requests'?'white':'#929292'?>">Event Requests</a>
+    <a class="nav-link" href="/views/admin/new-registrations" style="color: <?= $navItem == 'new-registrations'?'white':'#929292'?>">New Registrations</a>
 </nav>
 
 <nav class="nav justify-content-center college-logo-nav">

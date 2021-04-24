@@ -21,6 +21,44 @@
             }
         }
         
+        // to get all the unverified alumnis 
+        public function getAllUnverifiedAlumnis($college_id,$department_id){
+            $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id  AND a.is_verified=0";
+
+            $result = mysqli_query($this->connection,$this->query);
+            if(mysqli_num_rows($result) > 0){
+                return $result;
+            }else{
+                return null;
+            }
+        }
+
+        // this is to verify and accept the registration request of alumni
+        public function verifyAndAcceptRegistration($college_id,$department_id,$alumni_id,$username,$password){
+            // update the username, password and is_verified=1
+            $this->query = "UPDATE `$this->tablename` SET `username`='$username',`password`='$password',`is_verified`=1 WHERE college_id = $college_id AND department_id = $department_id AND id = $alumni_id AND is_verified=0";
+
+            $result = mysqli_query($this->connection,$this->query);
+            if(mysqli_affected_rows($this->connection) == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        // this is to deny the new registration request
+        public function denyNewRegistration($college_id,$department_id,$alumni_id){
+            // update the username, password and is_verified=1
+            $this->query = "DELETE FROM `$this->tablename` WHERE college_id =$college_id AND department_id =$department_id AND id = $alumni_id AND is_verified=0";
+
+            $result = mysqli_query($this->connection,$this->query);
+            if(mysqli_affected_rows($this->connection) == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         // to get all the college data
         public function createAlumni($full_name,$email,$phone_no,$dob,$home_address,$roll_no,$college_name,$college_department,$joining_year,$passout_year,$cgpa){
 
@@ -75,7 +113,7 @@
 
         // to get alumni details by college id
         public function getNotInvitedAlumnis($college_id,$event_id){
-            $this->query = "SELECT * FROM `$this->tablename` WHERE id NOT IN (SELECT alumni_id FROM `invitations` WHERE event_id=$event_id)";
+            $this->query = "SELECT * FROM `$this->tablename` WHERE id NOT IN (SELECT alumni_id FROM `invitations` WHERE event_id=$event_id) AND is_verified=1";
 
             $result = mysqli_query($this->connection,$this->query);
 
