@@ -15,7 +15,7 @@
                 </div>
                 <div class="alumni-account-info">
                         <p class="text-muted"><i><b>Account created: </b></i></p>
-                        <p class="text-muted"><?=date("F jS, Y - h:m A",strtotime($single_alumni['created_at']))?></p>
+                        <p class="text-muted"><?=date("F jS, Y",strtotime($single_alumni['created_at']))?></p>
                     </div>
             </div>
         </div>

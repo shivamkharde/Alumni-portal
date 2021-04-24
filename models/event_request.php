@@ -21,5 +21,18 @@ class EventRequest{
             return false;
         }
     }
+
+    // to get all the event requests by college id
+    public function getAllEventRequestsById($college_id){
+        $this->query = "SELECT a.*,b.fullname,b.email FROM `$this->tablename` a INNER JOIN `alumnis` b WHERE a.alumni_id=b.id AND a.college_id = $college_id AND b.is_verified=1 ORDER BY a.id DESC";
+
+        $results = mysqli_query($this->connection,$this->query);
+
+        if(mysqli_num_rows($results) > 0){
+            return $results;
+        }else{
+            return null;
+        }
+    }
 }
 ?>

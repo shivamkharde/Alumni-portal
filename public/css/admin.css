@@ -878,3 +878,103 @@ textarea {
     > button:last-child {
     background: #1c4966;
 }
+
+/* event requests page css */
+.event-requests-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    .card-body {
+    padding-bottom: 0;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    .card-body
+    > a {
+    text-decoration: none;
+    color: black;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    .card-body
+    > hr {
+    width: 150px;
+    text-align: left;
+    margin-left: 0;
+    background: #929292;
+    height: 2px;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    > .card
+    .col-md-12:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    > .card
+    .col-md-12:last-child
+    > .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    > .card
+    .col-md-12:last-child
+    > .row
+    > .col-md-6
+    > button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    color: white;
+}
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    > .card
+    .col-md-12:last-child
+    > .row
+    > .col-md-6:first-child
+    > button {
+    background-color: #0e2433;
+}
+
+.event-requests-main-container
+    > .event-requests-container
+    .event-requests-card
+    > .card
+    .col-md-12:last-child
+    > .row
+    > .col-md-6
+    > button {
+    background-color: #1c4966;
+}
