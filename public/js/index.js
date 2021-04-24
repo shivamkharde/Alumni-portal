@@ -324,8 +324,8 @@ function searchInNonInvitedAlumni(event_id) {
     let search_input = document.querySelector(
         "#invite-to-event-alumni-search-input",
     ).value;
-    let search_len = search_input.length;
     const data = JSON.parse(window.localStorage.getItem("alumni_list"));
+    let search_len = search_input.length;
     let result = data.data.filter(
         (li) =>
             li.fullname.substring(0, search_len) == search_input ||
@@ -375,6 +375,55 @@ $(document).on("click", "#open-send-invite-to-alumni-modal", function () {
     $("#invitation-title-message-modal #send-invitation-alumni-id").val(
         alumni_id,
     );
-
-    // $('#addBookDialog').modal('show');
 });
+
+// this function is to search for alumni
+function searchForAlumni() {
+    // get search string here
+    let search_string = document.querySelector("#alumni-search-bar-input")
+        .value;
+    // get data from localstorage
+    let alumni_data = JSON.parse(window.localStorage.getItem("alumni_data"));
+    let search_len = search_string.length;
+    let result = alumni_data.data.filter(
+        (li) =>
+            li.fullname.substring(0, search_len).toLowerCase() ==
+                search_string.toLowerCase() ||
+            li.email.substring(0, search_len) == search_string ||
+            li.phone.substring(0, search_len) == search_string ||
+            li.department_name.substring(0, search_len).toLowerCase() ==
+                search_string.toLowerCase(),
+    );
+
+    // create a alumni search card and populate
+    let alumni_search_card = "";
+    if (result.length == 0) {
+        alumni_search_card += `<h5 align="center">No Alumnis Found</h5>`;
+    } else {
+        // get filtered list and show the results
+        result.forEach((list, index) => {
+            alumni_search_card += `
+                <div class="alumni-search-list-item">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="alumni-info-short">
+                                <h4 class="alumni-info-name">${list.fullname}</h4>
+                                <p class="text-muted">${list.email}</p>
+                                <p class="text-muted">${list.phone}</p>
+                                <p class="text-muted">${list.department_name}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="see-alumni-profile-btn">
+                                <button type="button" onclick="window.location.href='/views/admin/search-alumni/alumni.php?id=${list.id}'">SEE PROFILE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    document.querySelector(
+        ".search-alumni-main-container .search-alumni-container #search-alumni-info-list-container",
+    ).innerHTML = alumni_search_card;
+}

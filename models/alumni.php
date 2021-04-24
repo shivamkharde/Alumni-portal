@@ -35,6 +35,18 @@
             }
         }
 
+        // to get all the verified alumnis for the college id
+        public function getAllVerifiedAlumnis($college_id){
+            $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id  AND a.is_verified=1;";
+
+            $result = mysqli_query($this->connection,$this->query);
+            if(mysqli_num_rows($result) > 0){
+                return $result;
+            }else{
+                return null;
+            }
+        }
+
         // get alumni by id with department details
         public function getAlumniDetailsByIdWithDepartment($alumni_id){
             $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id AND a.id=$alumni_id AND a.is_verified=1;";
