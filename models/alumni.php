@@ -126,7 +126,7 @@
 
         // to get alumni details by college id
         public function getNotInvitedAlumnis($college_id,$event_id){
-            $this->query = "SELECT * FROM `$this->tablename` WHERE id NOT IN (SELECT alumni_id FROM `invitations` WHERE event_id=$event_id) AND is_verified=1";
+            $this->query = "SELECT * FROM `$this->tablename` WHERE id NOT IN (SELECT alumni_id FROM `invitations` WHERE event_id=$event_id) AND college_id=$college_id AND is_verified=1";
 
             $result = mysqli_query($this->connection,$this->query);
 
