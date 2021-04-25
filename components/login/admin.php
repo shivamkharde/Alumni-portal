@@ -4,7 +4,7 @@ include("../../controllers/login/admin.controller.php");
 ?>
 
 <div class="admin-login-card">
-    <form action="../../views/login" method="POST">
+    <form action="#" method="POST">
     <!-- show error if available -->
         <?php if($error!=null){
                     echo "<p class='login-error'>$error</p>";

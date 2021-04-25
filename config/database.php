@@ -12,7 +12,7 @@ class Database{
         $this->username = getenv("DB_USERNAME")==""?"root":getenv("DB_USERNAME");
         $this->password = getenv("DB_PASSWORD")==""?"":getenv("DB_PASSWORD");
         $this->hostname = getenv("DB_HOST")==""?"localhost":getenv("DB_HOST");
-        $this->database = getenv("DB_DATABASE_NAME")==""?"alumni_portal":getenv("DB_HOST");
+        $this->database = getenv("DB_DATABASE_NAME")==""?"alumni_portal":getenv("DB_DATABASE_NAME");
 
     }
 

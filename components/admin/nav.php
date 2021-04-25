@@ -43,15 +43,15 @@ $_SESSION['college_data'] = $collegeObj;
 <!-- logic to change the active nav color -->
 <?php 
     $navItem = "";
-    if($url_path == "/views/admin"){
+    if($url_path == "/views/admin/"){
         $navItem = "home";
-    }else if($url_path == "/views/admin/manage-events"){
+    }else if($url_path == "/views/admin/manage-events/"){
         $navItem = "manage-events";
-    }else if($url_path == "/views/admin/search-alumni"){
+    }else if($url_path == "/views/admin/search-alumni/"){
         $navItem = "search-alumni";
-    }else if($url_path == "/views/admin/event-requests"){
+    }else if($url_path == "/views/admin/event-requests/"){
         $navItem = "event-requests";
-    }else if($url_path == "/views/admin/new-registrations"){
+    }else if($url_path == "/views/admin/new-registrations/"){
         $navItem = "new-registrations";
     }
 ?>
