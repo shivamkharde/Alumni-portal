@@ -16,7 +16,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/controllers/admin/allevents.controller.php')
     ?>
         <div class="row">
             <div class="col-md-12 manage-event-invite-card">
-                <h3>No Events Available</h3>
+                <h3 align="center">No Events Available</h3>
             </div>
         </div>
     <?php
