@@ -111,6 +111,19 @@
             }
         }
 
+        // to get unverified alumni by its id
+        public function getUnverifiedAlumniDetailsById($alumni_id){
+            $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id AND a.id=$alumni_id AND a.is_verified=0;";
+
+            $result = mysqli_query($this->connection,$this->query);
+
+            if(mysqli_num_rows($result) == 1){
+                return mysqli_fetch_assoc($result);
+            }else{
+                return false;
+            }
+        }
+
         // to get alumni details by college id
         public function getNotInvitedAlumnis($college_id,$event_id){
             $this->query = "SELECT * FROM `$this->tablename` WHERE id NOT IN (SELECT alumni_id FROM `invitations` WHERE event_id=$event_id) AND is_verified=1";
