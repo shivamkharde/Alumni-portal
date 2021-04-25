@@ -33,7 +33,7 @@ if($colleges ==null){
 
         // get all the values and sanitize it
         $full_name = mysqli_escape_string($connection,$_GET['full-name']);
-        $email = mysqli_escape_string($connection,$_GET['full-name']);
+        $email = mysqli_escape_string($connection,$_GET['email']);
         $phone_no = mysqli_escape_string($connection,$_GET['phone-no']);
         $dob = mysqli_escape_string($connection,$_GET['dob']);
         $home_address = mysqli_escape_string($connection,$_GET['home-address']);
