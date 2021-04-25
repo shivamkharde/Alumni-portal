@@ -49,6 +49,7 @@ function getSelectedOptionFromCollegeName() {
 function populateDepartmentData(data) {
     // get id ref of select box
     const selectElement = document.getElementById("college-department");
+    selectElement.innerHTML = "";
     // loop over data and and create options element
     data.data.forEach((data) => {
         const optionsElement = document.createElement("option");
