@@ -75,7 +75,7 @@
 
         // to get all the verified alumnis for the college id
         public function getAllVerifiedAlumnis($college_id){
-            $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id  a.college_id = $college_id AND a.is_verified=1;";
+            $this->query = "SELECT a.*,b.name as department_name FROM `alumnis` a INNER JOIN `departments` b WHERE a.department_id = b.id AND  a.college_id = $college_id AND a.is_verified=1;";
 
             $result = mysqli_query($this->connection,$this->query);
             if(mysqli_num_rows($result) > 0){

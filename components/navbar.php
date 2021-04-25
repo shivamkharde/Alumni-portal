@@ -9,14 +9,14 @@
     // change navbar name based on dir
     $url_path = $_SERVER["REQUEST_URI"];
     $navbar_name = "";
-    if($url_path == "/views/register"){
+    if($url_path == "/views/register/"){
         $navbar_name = "Alumni Portal Registration";
-    }else if($url_path == "/views/login"){
+    }else if($url_path == "/views/login/"){
         $navbar_name = "Alumni Portal Login";
-    }else if(startsWith($url_path,"/views/alumni")){
+    }else if(startsWith($url_path,"/views/alumni/")){
         $navbar_name ="Welcome Alumni - ";
         $navbar_name.=$_SESSION['user_data']['username'];
-    }else if(startsWith($url_path,"/views/admin")){
+    }else if(startsWith($url_path,"/views/admin/")){
         $navbar_name ="Welcome Admin - ";
         $navbar_name.=$_SESSION['user_data']['username'];
     }
